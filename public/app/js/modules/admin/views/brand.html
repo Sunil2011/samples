@@ -1,0 +1,50 @@
+<div class="col-sm-12">
+    <div class=" page-heading" id="page-heading">
+        <h3 class="">Brand List </h3>
+    </div>
+    
+    <panel panel-class="panel-sky" ng-hide=""> 
+        <div class="panel panel-sky add-panel">
+            
+            <div class="form-horizontal panel-heading list-header">
+                <div class="">
+                    <span>
+                        <span class="btn btn-prod"   ng-click="addEditBrand()"> 
+                            <strong>ADD</strong> 
+                        </span>  &nbsp;&nbsp;
+                        <span class="btn btn-prod"  id="deleteCategory" ng-click="deleteBrand()">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="panel-heading ">
+                
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive ng-scope">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> Thumbnail </th>
+                                <th> Name </th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="x in brand.brands">
+                                <td> <input type="radio"  name="brand_id" ng-value="{{x.id}}"  ng-model="brand.id">  </td>
+                                <td> <img class="profile-img" height="50" width="60" ng-src="{{brand.ImagePath}}/brands/{{x.image}}" err-src="{{product.ImagePath}}/product.jpg"/> </td>
+                                <td><a style="cursor:pointer" ng-click="addEditBrand( x.id )">{{ x.name}}</a></td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </panel>
+    
+</div>

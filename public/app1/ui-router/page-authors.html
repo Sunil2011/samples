@@ -1,0 +1,19 @@
+ 
+ <!-- page-authors.html -->
+ <div class="jumbotron text-center">
+    <h1>Authors page</h1>
+    <p>This page shows a list of popular and recent authors and it is intended to show the use of Multiple Views.</p>  
+ </div>
+
+<div class="row">
+   <!-- Popular authors named view -->
+   <div class="col-sm-6">
+      <div ui-view="popular"></div>
+   </div>
+
+   <!-- Recent authors named view -->
+   <div class="col-sm-6">
+      <div ui-view="recent"></div>
+   </div>
+
+</div>

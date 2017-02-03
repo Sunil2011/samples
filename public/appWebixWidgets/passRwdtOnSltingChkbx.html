@@ -1,0 +1,71 @@
+<!-- css file material.css and other files added under skins/ .. , skins/debug/.., and in font/.. from git zip folder  -->
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <!--<link rel="stylesheet" href="../webix/codebase/webix.css" type="text/css"> -->
+        <link rel="stylesheet" href="../webix/codebase/skins/material.css" type="text/css">   
+        <script src="../webix/codebase/webix.js" type="text/javascript"></script>
+        <title> webix-table </title>
+        <style> 
+            .right_align {
+                text-align: right;
+                // color: coral; 
+                // background-color: #112233;                                 
+            }
+            .text_heading {
+                color: coral;
+                text-align: center;
+                font-weight: bold;
+            }
+            .row-marked{
+                background-color: #ffa;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <script type="text/javascript" charset="utf-8" >
+            
+            var small_film_set = [
+                {id: 1, title: "The Shawshank Redemption", year: 1994},
+                {id: 2, title: "The Godfather", year: 1972, },
+                {id: 3, title: "The Godfather: Part II", year: 1974},
+                {id: 4, title: "The Good, the Bad and the Ugly", year: 1966},
+                {id: 5, title: "My Fair Lady", year: 1964},
+                {id: 16, title: "12 Angry Men", year: 1957}
+            ];
+
+            webix.ui({
+                view: "datatable",
+                id: "dt",
+                columns: [
+                    {id: "ch1", template: "{common.checkbox()}"},
+                    {id: "title", adjust: true},
+                    {id: "year"},
+                ],
+                data: small_film_set,
+                ready: function () {
+                    this.eachRow(function (id) {
+                        this.getItem(id).ch1 = 1;
+                    });
+                    this.refresh();
+                }
+            });
+
+            
+            $$("dt").attachEvent("onCheck", function (row, column, state) {
+                webix.message("State changed to " + state + " in the row " + row + " of the column " + column);
+               // var rowIndex = this.getIndexById(row)
+               // console.log(rowIndex);
+                console.log(row);    // this is id of row data 
+                console.log($$("dt").data.pull[row]); // data.pull(id);
+                              
+
+            });
+
+        </script>
+    </body>
+</html>
+
