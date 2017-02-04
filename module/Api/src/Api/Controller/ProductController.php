@@ -3,19 +3,18 @@
 namespace Api\Controller;
 
 //use Api\Model\Product;          // <-- Add this import
-
 //use Product\Form\ProductForm;       // <-- not required
- 
- 
-use Zend\Mvc\Controller\AbstractActionController;
 //use Zend\View\Model\ViewModel;
+
+
+use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\JsonModel;
 
 class ProductController extends AbstractActionController
 {
     protected $productTable;
     
-    
+     
     public function getProductTable()
     {
         if (!$this->productTable) {
